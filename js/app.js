@@ -1,6 +1,6 @@
 (function (){
 
-/* global angular */
+/* global angular  */
 var app = angular.module('fishID', ['angularUtils.directives.dirPagination']);
 
     app.controller('FishIDController', ['$http', function($http){
