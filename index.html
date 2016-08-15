@@ -82,10 +82,10 @@
                             <h3 class="panel-title">{{item.CommonName}}</h3>
                         </div>
                         <div id="panel-body">
-                            <a href="#"><img class="img-responsive" ng-src="{{item.Image1}}" alt="{{item.CommonName}}"></a>
+                            <a href ng-click="displayInfoTab = 1"><img class="img-responsive" ng-src="{{item.Image1}}" alt="{{item.CommonName}}"></a>
 
-            <!-- Still need to figure out how to display and hide this DIV based on user input.
-                            <div id="infoBox">
+                            <div id="infoBox" ng-show="displayInfoTab === 1">
+                                <a href ng-click="displayInfoTab = 0">Close</a>
                                 <div>Also known as: {{item.AlsoKnownAs}}</div>
                                 <div>Family: {{item.FamilyName1}}</div>
                                 <div ng-hide="item.MinSize == 'N/A'">Min size {{item.MinSize}}cm</div>
@@ -94,7 +94,6 @@
                                 <div ng-hide="item.Description == 'N/A'"><strong>Description: </strong>{{item.Description}}</div>
                                 <div ng-hide="item.Distribution == 'N/A'"><strong>Distribution: </strong>{{item.Distribution}}</div>
                             </div>
-            -->
                         </div>
                     </div>
                 </div>
