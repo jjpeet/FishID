@@ -19,10 +19,12 @@ var app = angular.module('fishID', ['angularUtils.directives.dirPagination']);
         .success(function(data){
                 fishID.items = data.result.records; 
             });
-    
+
     }]);
 
 })();
+
+
 
 
 // Open Data: https://data.qld.gov.au/api/action/datastore_search?resource_id=32af9a35-d4db-41e9-b152-d52609ff6372&limit=5

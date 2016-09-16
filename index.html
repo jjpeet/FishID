@@ -15,60 +15,44 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap theme -->
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/1-col-portfolio.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 
 </head>
 
 <body>
- 
-
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-inverse navbar-static-top">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <a href="./" class="navbar-brand" >FishID (beta)</a>
+
+                <button type="button" class="navbar-toggle" 
+                    data-toggle="collapse" 
+                    data-target=".navbar-collapse">
+
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="./">FishID (beta)</a>
+
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+
+                <ul class="nav navbar-nav navbar-right collapse navbar-collapse">
                     <li>
                         <a href="#">About</a>
                     </li>
                 </ul>
 
-            </div>
-            <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
-    </nav>
+    </div>
 
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
         <div class="row">
-                <form class="form-inline">
-                    <div class="form-group">
-                    <div class="col-xs-9"><input type="text" ng-model="search" class="form-control" placeholder="Search"></div>
-                    </div>
+                <form class="form-inline col-md-4 col-xs-12">
+                    <input type="text" ng-model="search" class="form-control" placeholder="Search">
                 </form>
         </div>
         
@@ -76,25 +60,29 @@
             <!-- /.row -->
             <div class="row">
             <div dir-paginate="item in fishID.items|orderBy:'FamilyName1'|filter:search|itemsPerPage:100" ng-hide="item.Image1 == 'N/A'" >
-                <div class="col-md-3" ng-show="item.Image1">
-                    <div class="panel panel-default">
+                <div class="col-md-4 col-xs-12" ng-show="item.Image1">
+                    <div class="panel panel-info">
                         <div class="panel-heading">
-                            <h3 class="panel-title">{{item.CommonName}}</h3>
+                            <h3 class="panel-title">
+                                <a href='#{{item.CommonName.split(" ").join("")}}' 
+                                    data-toggle='collapse' 
+                                    data-target='#{{item.CommonName.split(" ").join("")}}'>
+                                    {{item.CommonName}}<span class='caret'></span></a>
+                            </h3>
                         </div>
-                        <div id="panel-body">
-                            <a href ng-click="displayInfoTab = 1"><img class="img-responsive" ng-src="{{item.Image1}}" alt="{{item.CommonName}}"></a>
-
-                            <div id="infoBox" ng-show="displayInfoTab === 1">
-                                <a href ng-click="displayInfoTab = 0">Close</a>
-                                <div>Also known as: {{item.AlsoKnownAs}}</div>
-                                <div>Family: {{item.FamilyName1}}</div>
-                                <div ng-hide="item.MinSize == 'N/A'">Min size {{item.MinSize}}cm</div>
-                                <div ng-hide="item.MaxSize == 'N/A'">Max size {{item.MaxSize}}cm</div>
-                                <div ng-hide="item.PossessionLimit == 'N/A'">Bag limit {{item.PossessionLimit}}</div>    
-                                <div ng-hide="item.Description == 'N/A'"><strong>Description: </strong>{{item.Description}}</div>
-                                <div ng-hide="item.Distribution == 'N/A'"><strong>Distribution: </strong>{{item.Distribution}}</div>
+                        <div class='panel-body'>
+                            <img class="img-responsive" ng-src="{{item.Image1}}" alt="{{item.CommonName}}">                    
+                            <div id='#{{item.CommonName.split(" ").join("")}}'  class='collapse panel-collapse in'>
+                                <div class='well well-sm'>
+                                    <div>Also known as: {{item.AlsoKnownAs}}</div>
+                                    <div>Family: {{item.FamilyName1}}</div>
+                                    <div ng-hide="item.MinSize == 'N/A'">Min size {{item.MinSize}}cm</div>
+                                    <div ng-hide="item.MaxSize == 'N/A'">Max size {{item.MaxSize}}cm</div>
+                                    <div ng-hide="item.PossessionLimit == 'N/A'">Bag limit {{item.PossessionLimit}}</div>    
+                                    <div ng-hide="item.Description == 'N/A'"><strong>Description: </strong>{{item.Description}}</div>
+                                    <div ng-hide="item.Distribution == 'N/A'"><strong>Distribution: </strong>{{item.Distribution}}</div>
+                                </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             <!-- /.row -->
