@@ -60,19 +60,18 @@
             <!-- /.row -->
             <div class="row">
             <div dir-paginate="item in fishID.items|orderBy:'FamilyName1'|filter:search|itemsPerPage:100" ng-hide="item.Image1 == 'N/A'" >
-                <div class="col-md-4 col-xs-12" ng-show="item.Image1">
-                    <div class="panel panel-info">
+                <div class="col-md-4 col-xs-12 clearfix" ng-show="item.Image1">
+                    <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">
-                                <a href='#{{item.CommonName.split(" ").join("")}}' 
-                                    data-toggle='collapse' 
-                                    data-target='#{{item.CommonName.split(" ").join("")}}'>
-                                    {{item.CommonName}}<span class='caret'></span></a>
-                            </h3>
+                            <h3 class="panel-title">{{item.CommonName}}</h3>
+                            <button class="btn btn-default btn-xs pull-right" type="button" 
+                                data-toggle="collapse" 
+                                data-target='#{{item.CommonName.split(" ").join("")}}'>
+                                <span class='caret'></span></button>
                         </div>
                         <div class='panel-body'>
                             <img class="img-responsive" ng-src="{{item.Image1}}" alt="{{item.CommonName}}">                    
-                            <div id='#{{item.CommonName.split(" ").join("")}}'  class='collapse panel-collapse in'>
+                            <div id='{{item.CommonName.split(" ").join("")}}'  class='collapse'>
                                 <div class='well well-sm'>
                                     <div>Also known as: {{item.AlsoKnownAs}}</div>
                                     <div>Family: {{item.FamilyName1}}</div>
