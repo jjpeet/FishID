@@ -25,7 +25,7 @@
     <div class="navbar navbar-inverse navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-                <a href="./" class="navbar-brand" >FishID (beta)</a>
+                <a href="./index.html" class="navbar-brand" >FishID (beta)</a>
 
                 <button type="button" class="navbar-toggle" 
                     data-toggle="collapse" 
@@ -41,7 +41,7 @@
 
                 <ul class="nav navbar-nav navbar-right collapse navbar-collapse">
                     <li>
-                        <a href="#">About</a>
+                        <a href="./about.html">About</a>
                     </li>
                 </ul>
 
@@ -73,7 +73,10 @@
                             </h3>
                         </div>
                         <div class='panel-body'>
-                            <img class="img-responsive" ng-src="{{item.Image1}}" alt="{{item.CommonName}}">                    
+                            <a href=""
+                                data-toggle="collapse" 
+                                data-target='#{{item.CommonName.split(" ").join("")}}'>
+                            <img class="img-responsive" ng-src="{{item.Image1}}" alt="{{item.CommonName}}"></a>                    
                             <div id='{{item.CommonName.split(" ").join("")}}'  class='collapse'>
                                 <div class='well well-sm'>
                                     <div>Also known as: {{item.AlsoKnownAs}}</div>
@@ -90,6 +93,7 @@
             <!-- /.row -->
             </div>
         </div>
+        </div>
 
         <!-- Pagination -->
             <div class="row text-center">
@@ -98,7 +102,7 @@
                 </div>
             </div>
         <!-- /.Controller -->
-        </div>
+
         
         <!-- Footer -->
         <footer>
