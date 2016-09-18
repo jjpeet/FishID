@@ -13,6 +13,7 @@
     <meta name="Description" content="Photos and details of fish found in the waters of Queensland, Australia.">
     <meta name="Keywords" content="JJPEET.COM, FishID, Fish, Fish identification, QLD, Queensland, data.qld.gov.au">
     <link rel="icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" href="./favicon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -61,14 +62,15 @@
             <!-- /.row -->
             <div class="row">
             <div dir-paginate="item in fishID.items|orderBy:'FamilyName1'|filter:search|itemsPerPage:100" ng-hide="item.Image1 == 'N/A'" >
-                <div class="col-md-4 col-xs-12 clearfix" ng-show="item.Image1">
+                <div class="col-md-4 col-xs-12" ng-show="item.Image1">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">{{item.CommonName}}</h3>
+                            <h3 class="panel-title">{{item.CommonName}}
                             <button class="btn btn-default btn-xs pull-right" type="button" 
                                 data-toggle="collapse" 
                                 data-target='#{{item.CommonName.split(" ").join("")}}'>
                                 <span class='caret'></span></button>
+                            </h3>
                         </div>
                         <div class='panel-body'>
                             <img class="img-responsive" ng-src="{{item.Image1}}" alt="{{item.CommonName}}">                    
